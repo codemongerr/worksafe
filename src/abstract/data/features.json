@@ -2,7 +2,7 @@
   {
     "id": 1,
     "icon": "chart-area",
-    "text": "Quick glance of your business activities with well organized dashboard."
+    "text": "Glance of your business activities with well organized dashboard."
   },
   {
     "id": 2,
@@ -10,7 +10,7 @@
     "text": "Cleaning and sanitizing schedules."
   },
   {
-    "id": 8,
+    "id": 10,
     "icon": "bullhorn",
     "text": "Notify individuals regarding their work schedules, safety procedures, visits on site and control plans"
   },
@@ -48,5 +48,10 @@
     "id": 9,
     "icon": "list-alt",
     "text": "Robust reporting system available in multiple formats"
+  },
+  {
+    "id": 11,
+    "icon": "newspaper",
+    "text": "Latest updates on work standards"
   }
 ]

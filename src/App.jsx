@@ -4,17 +4,28 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ReactGA from "react-ga";
 import GlobalStyle from "./abstract/Styles/GlobalStyle";
 import dark from "./abstract/theme";
+import bannerImageAlt from "./images/banner-v1.jpg";
+import {
+  URL_HOME,
+  URL_FEATURES,
+  URL_PRICING,
+  URL_NEWS,
+  URL_QUOTES,
+} from "./utils/constants";
+import Header from "./components/Header";
 import Navigation, {
   NavigationLink,
   NavigationAnchor,
 } from "./components/Navigation";
 import Button from "./components/Button";
 import Banner from "./components/Banner";
+import Logo from "./components/Logo";
 import FeatureList, {
   Feature,
   FeatureIcon,
   FeatureHeading,
 } from "./components/FeatureList";
+import Footer from "./components/Footer";
 import {
   Section,
   SectionHeading,
@@ -27,12 +38,7 @@ import navigationList from "./abstract/data/navigation-items.json";
 import features from "./abstract/data/features.json";
 
 const QuoteButton = () => (
-  <Button
-    as="a"
-    href="https://docs.google.com/forms/d/1Plbqshuv0pHLpbyua1lDHCa6pMlh5qrV1EXzOWDGV_M/edit"
-    target="_blank"
-    variant="default"
-  >
+  <Button as="a" href={URL_QUOTES} target="_blank" variant="default">
     Get a quote
   </Button>
 );
@@ -46,11 +52,10 @@ const Home = () => (
           <p>
             World is changing and so are we. The way businesses operate in New
             Zealand is changing rapidly. Going forward organisations are going
-            operate on digital and contactless models and following the
-            regulations issued by New Zealand Govt. Work places will be more
-            secure, hygienic and organised for reporting and tracing purposes.{" "}
-            <br />
-            We understand this can be very difficult and overwhelming to manage
+            to operate on digital and contactless model within regulations
+            issued by New Zealand Govt. Work places will be more secure,
+            hygienic and organised for reporting and tracing purposes. We
+            understand this can be very difficult and overwhelming to manage
             especially if you are medium to large scale business.
           </p>
           <p>
@@ -64,7 +69,7 @@ const Home = () => (
             <br />
           </p>
           <p>
-            <Button as="a" href="/what-we-offer" variant="default">
+            <Button as="a" href={URL_FEATURES} variant="default">
               Find out more
             </Button>
           </p>
@@ -75,8 +80,8 @@ const Home = () => (
 );
 
 const Services = () => (
-  <Section id="what-we-offer">
-    <SectionHeading>What we offer</SectionHeading>
+  <Section id="features">
+    <SectionHeading>Features and what we offer</SectionHeading>
     <FeatureList>
       {features.map((feature) => {
         return (
@@ -97,7 +102,7 @@ const Services = () => (
 
 const Pricing = () => (
   <Section id="pricing">
-    <SectionHeading>Pricing & Quotes</SectionHeading>
+    <SectionHeading>Pricing and Quotes</SectionHeading>
     <SectionList>
       <SectionListItem fluid={true}>
         <SectionListItemDetail>
@@ -124,7 +129,7 @@ const Pricing = () => (
 
 const News = () => (
   <Section id="pricing">
-    <SectionHeading>News & Articles</SectionHeading>
+    <SectionHeading>News and Articles</SectionHeading>
     <SectionList>
       <SectionListItem fluid={true}>
         <SectionListItemDetail>
@@ -141,42 +146,55 @@ const News = () => (
 );
 
 function App() {
-  // ReactGA.initialize("UA-143436222-1");
-  // ReactGA.pageview("/");
+  ReactGA.initialize("UA-164342425-1");
   return (
     <ThemeProvider theme={dark}>
       <Fragment>
         <GlobalStyle />
         <Router>
-          <Navigation>
-            {navigationList.map((data) => {
-              return data.isExternal ? (
-                <NavigationAnchor key={data.id} href={data.uri} target="_blank">
-                  {data.label}
-                </NavigationAnchor>
-              ) : (
-                <NavigationLink key={data.id} to={data.uri}>
-                  {data.label}
-                </NavigationLink>
-              );
-            })}
-          </Navigation>
-          <Banner />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/what-we-offer">
-              <Services />
-            </Route>
-            <Route path="/pricing">
-              <Pricing />
-            </Route>
-            <Route path="/news">
-              <News />
-            </Route>
-          </Switch>
+          <Header>
+            <Logo />
+            <Navigation>
+              {navigationList.map((data) => {
+                return data.isExternal ? (
+                  <NavigationAnchor
+                    key={data.id}
+                    href={data.uri}
+                    target="_blank"
+                  >
+                    {data.label}
+                  </NavigationAnchor>
+                ) : (
+                  <NavigationLink key={data.id} to={data.uri}>
+                    {data.label}
+                  </NavigationLink>
+                );
+              })}
+            </Navigation>
+          </Header>
+          <div className="container" style={{ minHeight: "100vh" }}>
+            <Banner />
+            <Switch>
+              <Route exact path={URL_HOME}>
+                <Home />
+                {ReactGA.pageview(URL_HOME)}
+              </Route>
+              <Route path={URL_FEATURES}>
+                <Services />
+                {ReactGA.pageview(URL_FEATURES)}
+              </Route>
+              <Route path={URL_PRICING}>
+                <Pricing />
+                {ReactGA.pageview(URL_PRICING)}
+              </Route>
+              <Route path={URL_NEWS}>
+                <News />
+                {ReactGA.pageview(URL_NEWS)}
+              </Route>
+            </Switch>
+          </div>
         </Router>
+        <Footer />
       </Fragment>
     </ThemeProvider>
   );
