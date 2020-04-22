@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "label": "Home",
+    "uri": "/",
+    "isExternal": false
+  },
+  {
+    "id": 2,
+    "label": "What we offer",
+    "uri": "/what-we-offer",
+    "isExternal": false
+  },
+  {
+    "id": 3,
+    "label": "Pricing",
+    "uri": "/pricing",
+    "isExternal": false
+  },
+  {
+    "id": 4,
+    "label": "News",
+    "uri": "/news",
+    "isExternal": false
+  },
+  {
+    "id": 5,
+    "label": "Contact Us",
+    "uri": "https://docs.google.com/forms/d/1Plbqshuv0pHLpbyua1lDHCa6pMlh5qrV1EXzOWDGV_M/edit",
+    "isExternal": true
+  }
+]

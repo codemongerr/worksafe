@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "icon": "chart-area",
+    "text": "Quick glance of your business activities with well organized dashboard."
+  },
+  {
+    "id": 2,
+    "icon": "hands-wash",
+    "text": "Cleaning and sanitizing schedules."
+  },
+  {
+    "id": 8,
+    "icon": "bullhorn",
+    "text": "Notify individuals regarding their work schedules, safety procedures, visits on site and control plans"
+  },
+  {
+    "id": 3,
+    "icon": "truck",
+    "text": "Keep track of your incoming and outgoing deliveries."
+  },
+  {
+    "id": 4,
+    "icon": "tools",
+    "text": "Tools and equipment tracking"
+  },
+  {
+    "id": 5,
+    "icon": "user-tie",
+    "text": "Create rosters to identify people working on shift"
+  },
+  {
+    "id": 6,
+    "icon": "map-marker",
+    "text": "Manage multiple work sites and projects"
+  },
+  {
+    "id": 7,
+    "icon": "users",
+    "text": "Manage visitors, clients and notify them prior their arrival"
+  },
+  {
+    "id": 8,
+    "icon": "file-medical-alt",
+    "text": "Health records"
+  },
+  {
+    "id": 9,
+    "icon": "list-alt",
+    "text": "Robust reporting system available in multiple formats"
+  }
+]
