@@ -1,6 +1,11 @@
 import React, { Fragment } from "react";
 import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  HashRouter,
+} from "react-router-dom";
 import ReactGA from "react-ga";
 import GlobalStyle from "./abstract/Styles/GlobalStyle";
 import dark from "./abstract/theme";
@@ -134,8 +139,7 @@ const News = () => (
       <SectionListItem fluid={true}>
         <SectionListItemDetail>
           <p>
-            This Page under currently construction. We apologies for any
-            inconvenience.
+            This page is under construction. We apologies for any inconvenience.
             <br />
             <br />
           </p>
@@ -151,7 +155,7 @@ function App() {
     <ThemeProvider theme={dark}>
       <Fragment>
         <GlobalStyle />
-        <Router>
+        <HashRouter>
           <Header>
             <Logo />
             <Navigation>
@@ -193,7 +197,7 @@ function App() {
               </Route>
             </Switch>
           </div>
-        </Router>
+        </HashRouter>
         <Footer />
       </Fragment>
     </ThemeProvider>
