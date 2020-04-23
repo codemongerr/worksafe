@@ -74,7 +74,7 @@ const Home = () => (
             <br />
           </p>
           <p>
-            <Button as="a" href={URL_FEATURES} variant="default">
+            <Button as="a" href={`#${URL_FEATURES}`} variant="default">
               Find out more
             </Button>
           </p>
